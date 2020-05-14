@@ -1,0 +1,320 @@
+////////// PB-CSharp-First-Steps-in-Coding-Lab //////////
+/// 01. Hello SoftUni
+using System;
+
+namespace SimpleOperationsAndCalculationsLab
+{
+    class HelloSoftUni
+
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Hello SoftUni");
+        }
+    }
+}
+
+/// 02. Nums 1...10
+using System;
+
+namespace SimpleOperationsAndCalculationsLab
+{
+    class NumsFrom1To10
+
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine(1);
+            Console.WriteLine(2);
+            Console.WriteLine(3);
+            Console.WriteLine(4);
+            Console.WriteLine(5);
+            Console.WriteLine(6);
+            Console.WriteLine(7);
+            Console.WriteLine(8);
+            Console.WriteLine(9);
+            Console.WriteLine(10);
+        }
+    }
+}
+
+/// 03. Square Area
+using System;
+
+namespace SimpleOperationsAndCalculationsLab
+{
+    class SquareArea
+    {
+        static void Main(string[] args)
+        {
+            int side = int.Parse(Console.ReadLine());
+            Console.WriteLine(side * side);
+        }
+    }
+}
+
+/// 04. Inches to Centimeters
+using System;
+
+namespace SimpleOperationsAndCalculationsLab
+{
+    class InchesToCentimeters
+    {
+        static void Main(string[] args)
+        {
+            double inches = double.Parse(Console.ReadLine());
+            Console.WriteLine(inches * 2.54);
+        }
+    }
+}
+
+/// 05. Greeting by Name
+using System;
+
+namespace SimpleOperationsAndCalculationsLab
+{
+    class GreetinByName
+    {
+        static void Main(string[] args)
+        {
+            string name = Console.ReadLine();
+            Console.WriteLine("Hello, " + name + "!");
+        }
+    }
+}
+
+/// 06. Concatenate Data
+using System;
+
+namespace SimpleOperationsAndCalculationsLab
+{
+    class ConcatenateData
+    {
+        static void Main(string[] args)
+        {
+            string firstName = Console.ReadLine();
+            string lastName = Console.ReadLine();
+            int age = int.Parse(Console.ReadLine());
+            string town = Console.ReadLine();
+            Console.WriteLine("You are " + firstName + " " + lastName + ", a " + age + "-years old person from " + town + ".");
+        }
+    }
+}
+
+/// 07. Projects Creation
+using System;
+
+namespace SimpleOperationsAndCalculationsLab
+{
+    class ProjectsCreation
+    {
+        static void Main(string[] args)
+        {
+            string nameOfArchitect = Console.ReadLine();
+            int numberOfProjects = int.Parse(Console.ReadLine());
+            Console.WriteLine("The architect " + nameOfArchitect + " will need " + (numberOfProjects * 3) + " hours to complete " + numberOfProjects + " project/s.");
+        }
+    }
+}
+
+/// 08. Pet Shop
+using System;
+
+namespace SimpleOperationsAndCalculationsLab
+{
+    class PetShop
+    {
+        static void Main(string[] args)
+        {
+            int numberOfDogs = int.Parse(Console.ReadLine());
+            int numberOfOtherAnimals = int.Parse(Console.ReadLine());
+            double result = numberOfDogs * 2.5 + numberOfOtherAnimals * 4;
+            Console.WriteLine($"{result} lv.");
+        }
+    }
+}
+
+/// 09. Yard Greening
+using System;
+
+namespace SimpleOperationsAndCalculationsLab
+{
+    class YardGreening
+    {
+        static void Main(string[] args)
+        {
+            double squareMeters = double.Parse(Console.ReadLine());
+            double result = squareMeters * 7.61;
+            double discount = result * 0.18;
+            result = result - discount;
+            Console.WriteLine($"The final price is: {result:F2} lv.");
+            Console.WriteLine($"The discount is: {discount:F2} lv.");
+        }
+    }
+}
+
+
+////////// PB-CSharp-First-Steps-in-Coding-Exercise //////////
+/// 01. USD to BGN
+using System;
+
+namespace SimpleOperationsAndCalculationsExercise
+{
+    class USDToBGN
+    {
+        static void Main(string[] args)
+        {
+            double amountUSD = double.Parse(Console.ReadLine());
+            double result = amountUSD * 1.79549;
+            Console.WriteLine($"{result:F2}");
+        }
+    }
+}
+
+/// 02. Radians to Degrees
+using System;
+
+namespace SimpleOperationsAndCalculationsExercise
+{
+    class RadiansToDegrees
+    {
+        static void Main(string[] args)
+        {
+            double angleInRadians = double.Parse(Console.ReadLine());
+            double resultInDegrees = angleInRadians * 180 / Math.PI;
+            Console.WriteLine(Math.Round(resultInDegrees, 0));
+        }
+    }
+}
+
+/// 03. Deposit Calculator
+using System;
+
+namespace SimpleOperationsAndCalculationsExercise
+{
+    class DepositCalculator
+
+    {
+        static void Main(string[] args)
+        {
+            double depositAmount = double.Parse(Console.ReadLine());
+            int depositTerm = int.Parse(Console.ReadLine());
+            double annualInterestRate = double.Parse(Console.ReadLine());
+            double accruedInterest = (depositAmount * annualInterestRate) / 100;
+            double interest = accruedInterest / 12;
+            double result = depositAmount + depositTerm * interest;
+            Console.WriteLine(result);
+        }
+    }
+}
+
+/// 04. Vacation books list
+using System;
+
+namespace SimpleOperationsAndCalculationsExercise
+{
+    class VacationBooksList
+
+    {
+        static void Main(string[] args)
+        {
+            int numberOfPagesInTheCurrentBook = int.Parse(Console.ReadLine());
+            double pages = double.Parse(Console.ReadLine());
+            int numberOfDays = int.Parse(Console.ReadLine());
+            double totalTimeToReadTheBook = numberOfPagesInTheCurrentBook / pages;
+            double theNumberOfHoursPerDay = totalTimeToReadTheBook / numberOfDays;
+            Console.WriteLine(theNumberOfHoursPerDay);
+        }
+    }
+}
+
+/// 05. Birthday party
+using System;
+
+namespace SimpleOperationsAndCalculationsExercise
+{
+    class BirthdayParty
+
+    {
+        static void Main(string[] args)
+        {
+            double rentForTheHall = double.Parse(Console.ReadLine());
+            double cakeCost = rentForTheHall * 20 / 100;
+            double drinksCost = cakeCost - (cakeCost * 45 / 100);
+            double animatorCost = rentForTheHall / 3;
+            double budget = rentForTheHall + cakeCost + drinksCost + animatorCost;
+            Console.WriteLine(budget);
+        }
+    }
+}
+
+/// 06. Charity Campaign
+using System;
+
+namespace SimpleOperationsAndCalculationsExercise
+{
+    class CharityCampaign
+    {
+        static void Main(string[] args)
+        {
+            int days = int.Parse(Console.ReadLine());
+            int confectioners = int.Parse(Console.ReadLine());
+            int cakes = int.Parse(Console.ReadLine());
+            int waffles = int.Parse(Console.ReadLine());
+            int pancakes = int.Parse(Console.ReadLine());
+            double totalAmountForDay = confectioners * (cakes * 45 + waffles * 5.80 + pancakes * 3.20);
+            double total = days * totalAmountForDay;
+            total = total - (0.125 * total);
+            Console.WriteLine($"{ total:F2}");
+        }
+    }
+}
+
+/// 07. Fruit Market
+using System;
+
+namespace SimpleOperationsAndCalculationsExercise
+{
+    class FruitMarket
+
+    {
+        static void Main(string[] args)
+        {
+            double strawberriesPrice = double.Parse(Console.ReadLine());
+            double bananasQuantity = double.Parse(Console.ReadLine());
+            double orangesQuantity = double.Parse(Console.ReadLine());
+            double raspberriesQuantity = double.Parse(Console.ReadLine());
+            double strawberriesQuantity = double.Parse(Console.ReadLine());
+            double moneyForStrawberries = strawberriesPrice * strawberriesQuantity;
+            double raspberriesPrice = strawberriesPrice / 2;
+            double moneyForRaspberries = raspberriesPrice * raspberriesQuantity;
+            double orangesPrice = raspberriesPrice - (raspberriesPrice * 40 / 100);
+            double moneyForOranges = orangesPrice * orangesQuantity;
+            double bananasPrice = raspberriesPrice - (raspberriesPrice * 80 / 100);
+            double moneyForBananas = bananasPrice * bananasQuantity;
+            double needMoney = moneyForStrawberries + moneyForRaspberries + moneyForOranges + moneyForBananas;
+            Console.WriteLine($"{needMoney:F2}");
+        }
+    }
+}
+
+/// 08. Fish Tank
+using System;
+
+namespace SimpleOperationsAndCalculationsExercise
+{
+    class FishTank
+    {
+        static void Main(string[] args)
+        {
+            int length = int.Parse(Console.ReadLine());
+            int width = int.Parse(Console.ReadLine());
+            int height = int.Parse(Console.ReadLine());
+            double percentOccupiedArea = double.Parse(Console.ReadLine());
+            int capacityOfTank = length * width * height;
+            double realCapacity = capacityOfTank - capacityOfTank * (percentOccupiedArea / 100);
+            double realCapacityToLiters = realCapacity * 0.001;
+            Console.WriteLine($"{realCapacityToLiters:F3}");
+        }
+    }
+}

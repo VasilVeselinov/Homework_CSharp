@@ -1,0 +1,476 @@
+////////// PB-CSharp-Conditional-Statements-Lab //////////
+/// 01. Excellent Result
+using System;
+
+namespace ConditionalStatementsLab
+{
+    class ExcellentResult
+    {
+        static void Main(string[] args)
+        {
+            double evaluation = double.Parse(Console.ReadLine());
+            if (evaluation >= 5.5)
+            {
+                Console.WriteLine("Excellent!");
+            }
+        }
+    }
+}
+
+/// 02. Greater Number
+using System;
+
+namespace ConditionalStatementsLab
+{
+    class GreaterNumber
+    {
+        static void Main(string[] args)
+        {
+            int number1 = int.Parse(Console.ReadLine());
+            int number2 = int.Parse(Console.ReadLine());
+            if (number1 >= number2)
+            {
+                Console.WriteLine(number1);
+            }
+            else
+            {
+                Console.WriteLine(number2);
+            }
+        }
+    }
+}
+
+/// 03. Even or Odd
+using System;
+
+namespace ConditionalStatementsLab
+{
+    class EvenOrOdd
+    {
+        static void Main(string[] args)
+        {
+            int number = int.Parse(Console.ReadLine());
+            if (number % 2 == 0)
+            {
+                Console.WriteLine("even");
+            }
+            else
+            {
+                Console.WriteLine("odd");
+            }
+        }
+    }
+}
+
+/// 04. Number 100...200
+using System;
+
+namespace ConditionalStatementsLab
+{
+    class NumberFrom100To200
+    {
+        static void Main(string[] args)
+        {
+            int number = int.Parse(Console.ReadLine());
+            if (number < 100)
+            {
+                Console.WriteLine("Less than 100");
+            }
+            else if (number >= 100 && number <= 200)
+            {
+                Console.WriteLine("Between 100 and 200");
+            }
+            else
+            {
+                Console.WriteLine("Greater than 200");
+            }
+        }
+    }
+}
+
+/// 05. Password Guess
+using System;
+
+namespace ConditionalStatementsLab
+{
+    class PasswordGuess
+    {
+        static void Main(string[] args)
+        {
+            string text = Console.ReadLine();
+            if (text == "s3cr3t!P@ssw0rd")
+            {
+                Console.WriteLine("Welcome");
+            }
+            else
+            {
+                Console.WriteLine("Wrong password!");
+            }
+        }
+    }
+}
+
+/// 06. Area of Figures
+using System;
+
+namespace ConditionalStatementsLab
+{
+    class AreaOfFigures
+    {
+        static void Main(string[] args)
+        {
+            string typeOfGeometricFigure = Console.ReadLine();
+            double sideA = double.Parse(Console.ReadLine());
+            double area = 0;
+            if (typeOfGeometricFigure == "square")
+            {
+                area = sideA * sideA;
+            }
+            else if (typeOfGeometricFigure == "rectangle")
+            {
+                double sideB = double.Parse(Console.ReadLine());
+                area = sideA * sideB;
+            }
+            else if (typeOfGeometricFigure == "circle")
+            {
+                area = sideA * sideA * Math.PI;
+            }
+            else if (typeOfGeometricFigure == "triangle")
+            {
+                double sideB = double.Parse(Console.ReadLine());
+                area = (sideA * sideB) / 2;
+            }
+            Console.WriteLine($"{area:F3}");
+        }
+    }
+}
+
+/// 07. Toy Shop
+using System;
+
+namespace ConditionalStatementsLab
+{
+    class ToyShop
+    {
+        static void Main(string[] args)
+        {
+            double priceoftheexcursion = double.Parse(Console.ReadLine());
+            int numberOfPuzzle = int.Parse(Console.ReadLine());
+            int numberOfTalkingDoll = int.Parse(Console.ReadLine());
+            int numberOfTeddyBear = int.Parse(Console.ReadLine());
+            int numberOfMinion = int.Parse(Console.ReadLine());
+            int numberOfTruck = int.Parse(Console.ReadLine());
+            double profit = numberOfPuzzle * 2.60 + numberOfTalkingDoll * 3 + numberOfTeddyBear * 4.10 + numberOfMinion * 8.20 + numberOfTruck * 2;
+            int totalNumberOfToys = numberOfPuzzle + numberOfTalkingDoll + numberOfTeddyBear + numberOfMinion + numberOfTruck;
+            if (totalNumberOfToys >= 50)
+            {
+                profit = profit - (profit * 0.25);
+            }
+            profit = profit - (profit * 0.10);
+            if (priceoftheexcursion <= profit)
+            {
+                Console.WriteLine($"Yes! {(profit - priceoftheexcursion):F2} lv left.");
+            }
+            else
+            {
+                Console.WriteLine($"Not enough money! {(priceoftheexcursion - profit):F2} lv needed.");
+            }
+        }
+    }
+}
+
+
+////////// PB-CSharp-Conditional-Statements-Exercise //////////
+/// 01. Sum Seconds
+using System;
+
+namespace ConditionalStatementsExercise
+{
+    class SumSeconds
+    {
+        static void Main(string[] args)
+        {
+            int firstTime = int.Parse(Console.ReadLine());
+            int secondTime = int.Parse(Console.ReadLine());
+            int thirdTime = int.Parse(Console.ReadLine());
+            int totalSeconds = firstTime + secondTime + thirdTime;
+            int remainder = totalSeconds % 60;
+            if (totalSeconds >= 120)
+            {
+
+                if (remainder < 10)
+                {
+                    Console.WriteLine("2:0" + remainder);
+                }
+                else
+                {
+                    Console.WriteLine("2:" + remainder);
+                }
+            }
+            else if (totalSeconds >= 60)
+            {
+                if (remainder < 10)
+                {
+                    Console.WriteLine("1:0" + remainder);
+                }
+                else
+                {
+                    Console.WriteLine("1:" + remainder);
+                }
+            }
+            else
+            {
+                if (remainder < 10)
+                {
+                    Console.WriteLine("0:0" + remainder);
+                }
+                else
+                {
+                    Console.WriteLine("0:" + remainder);
+                }
+            }
+        }
+    }
+}
+
+/// 02. Bonus Score
+using System;
+
+namespace ConditionalStatementsExercise
+{
+    class BonusScore
+    {
+        static void Main(string[] args)
+        {
+            int number = int.Parse(Console.ReadLine());
+            double bonusPoints = 0;
+            if (number <= 100)
+            {
+                bonusPoints += 5;
+            }
+            else if (number <= 1000)
+            {
+                bonusPoints += number * 0.20;
+            }
+            else
+            {
+                bonusPoints += number * 0.10;
+            }
+            if (number % 2 == 0)
+            {
+                bonusPoints += 1;
+            }
+            if (number % 10 == 5)
+            {
+                bonusPoints += 2;
+            }
+            Console.WriteLine(bonusPoints);
+            Console.WriteLine(number + bonusPoints);
+        }
+    }
+}
+
+/// 03. Speed Info
+using System;
+
+namespace ConditionalStatementsExercise
+{
+    class SpeedInfo
+    {
+        static void Main(string[] args)
+        {
+            double inputSpeed = double.Parse(Console.ReadLine());
+            if (inputSpeed <= 10)
+            {
+                Console.WriteLine("slow");
+            }
+            else if (inputSpeed <= 50)
+            {
+                Console.WriteLine("average");
+            }
+            else if (inputSpeed <= 150)
+            {
+                Console.WriteLine("fast");
+            }
+            else if (inputSpeed <= 1000)
+            {
+                Console.WriteLine("ultra fast");
+            }
+            else
+            {
+                Console.WriteLine("extremely fast");
+            }
+        }
+    }
+}
+
+/// 04. Metric Converter
+using System;
+
+namespace ConditionalStatementsExercise
+{
+    class MetricConverter
+    {
+        static void Main(string[] args)
+        {
+            double value = double.Parse(Console.ReadLine());
+            string from = Console.ReadLine();
+            string to = Console.ReadLine();
+            double result = 0;
+            if (from == "mm")
+            {
+                result = value / 1000;
+            }
+            else if (from == "cm")
+            {
+                result = value / 100;
+            }
+            else if (from == "m")
+            {
+                result = value / 1;
+            }
+            if (to == "mm")
+            {
+                result = result * 1000;
+            }
+            else if (to == "cm")
+            {
+                result = result * 100;
+            }
+            else if (to == "m")
+            {
+                result = result * 1;
+            }
+            Console.WriteLine($"{result:F3}");
+        }
+    }
+}
+
+/// 05. Time + 15 Minutes
+using System;
+
+namespace ConditionalStatementsExercise
+{
+    class TimePlus15Minutes
+    {
+        static void Main(string[] args)
+        {
+            int hour = int.Parse(Console.ReadLine());
+            int minutes = int.Parse(Console.ReadLine());
+            minutes += 15;
+            if (minutes >= 60)
+            {
+                hour += 1;
+                minutes -= 60;
+            }
+            if (hour > 23)
+            {
+                hour = 0;
+            }
+            if (minutes < 10)
+            {
+                Console.WriteLine($"{ hour}:0{ minutes}");
+            }
+            else
+            {
+                Console.WriteLine($"{ hour}:{ minutes}");
+            }
+        }
+    }
+}
+
+/// 06. Godzilla vs. Kong
+using System;
+
+namespace ConditionalStatementsExercise
+{
+    class GodzillaVsKong
+    {
+        static void Main(string[] args)
+        {
+            double budget = double.Parse(Console.ReadLine());
+            int numberOfExtras = int.Parse(Console.ReadLine());
+            double priceForClothing = double.Parse(Console.ReadLine());
+            double costOfdecor = budget * 0.10;
+            double totalCostOfClothing = numberOfExtras * priceForClothing;
+            if (numberOfExtras > 150)
+            {
+                totalCostOfClothing -= totalCostOfClothing * 0.10;
+            }
+            double totalCost = costOfdecor + totalCostOfClothing;
+            if (budget < totalCost)
+            {
+                Console.WriteLine($"Not enough money!\nWingard needs {(totalCost - budget):F2} leva more.");
+            }
+            else
+            {
+                Console.WriteLine($"Action!\nWingard starts filming with {(budget - totalCost):F2} leva left.");
+            }
+        }
+    }
+}
+
+/// 07. World Swimming Record
+using System;
+
+namespace ConditionalStatementsExercise
+{
+    class WorldSwimmingRecord
+    {
+        static void Main(string[] args)
+        {
+            double theRecordInSeconds = double.Parse(Console.ReadLine());
+            double distanceInMeters = double.Parse(Console.ReadLine());
+            double timeInSecondsForOneMeter = double.Parse(Console.ReadLine());
+            double timesOfDelay = Math.Truncate(distanceInMeters / 15);
+            double delayInSeconds = timesOfDelay * 12.5;
+            double totalSecondsOfIvan = distanceInMeters * timeInSecondsForOneMeter + delayInSeconds;
+            if (totalSecondsOfIvan < theRecordInSeconds)
+            {
+                Console.WriteLine($"Yes, he succeeded! The new world record is {totalSecondsOfIvan:F} seconds.");
+            }
+            else
+            {
+                Console.WriteLine($"No, he failed! He was {(totalSecondsOfIvan - theRecordInSeconds):F2} seconds slower.");
+            }
+        }
+    }
+}
+
+/// 08. Scholarship
+using System;
+
+namespace ConditionalStatementsExercise
+{
+    class Scholarship
+    {
+        static void Main(string[] args)
+        {
+            double incomeInBGN = double.Parse(Console.ReadLine());
+            double averageScore = double.Parse(Console.ReadLine());
+            double minimumWage = double.Parse(Console.ReadLine());
+            double socialScholarship = 0;
+            double scholarshipForExcellence = 0;
+            if (incomeInBGN < minimumWage && averageScore > 4.5)
+            {
+                socialScholarship = minimumWage * 0.35;
+            }
+            if (averageScore >= 5.5)
+            {
+                scholarshipForExcellence = averageScore * 25;
+            }
+            if (socialScholarship > scholarshipForExcellence)
+            {
+                Console.WriteLine($"You get a Social scholarship {Math.Truncate(socialScholarship)} BGN");
+            }
+            else if (scholarshipForExcellence >= socialScholarship && scholarshipForExcellence != 0)
+            {
+                Console.WriteLine($"You get a scholarship for excellent results {Math.Truncate(scholarshipForExcellence)} BGN");
+            }
+            else
+            {
+                Console.WriteLine("You cannot get a scholarship!");
+            }
+        }
+    }
+}

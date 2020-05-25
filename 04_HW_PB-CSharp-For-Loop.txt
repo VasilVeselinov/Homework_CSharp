@@ -1,0 +1,562 @@
+////////// PB-CSharp-For-Loop-Lab //////////
+/// 01. Numbers from 1 to 100
+using System;
+
+namespace ForLoopLab
+{
+    class NumbersFromOneToHundred
+
+    {
+        static void Main(string[] args)
+        {
+            for (int i = 1; i <= 100; i++)
+            {
+                Console.WriteLine(i);
+            }
+        }
+    }
+}
+
+/// 02. Numbers N...1
+using System;
+
+namespace ForLoopLab
+{
+    class NumbersFromNumberNToOne
+
+    {
+        static void Main(string[] args)
+        {
+            int numberN = int.Parse(Console.ReadLine());
+            for (int i = numberN; i >= 1; i--)
+            {
+                Console.WriteLine(i);
+            }
+        }
+    }
+}
+
+/// 03. Numbers 1...N with Step 3
+using System;
+
+namespace ForLoopLab
+{
+    class NumbersFromOneTonumberNStepThree
+
+    {
+        static void Main(string[] args)
+        {
+            int numberN = int.Parse(Console.ReadLine());
+            for (int i = 1; i <= numberN; i += 3)
+            {
+                Console.WriteLine(i);
+            }
+        }
+    }
+}
+
+/// 04. Even Powers of 2
+using System;
+
+namespace ForLoopLab
+{
+    class EvenPowersOfTwo
+
+    {
+        static void Main(string[] args)
+        {
+            int numberN = int.Parse(Console.ReadLine());
+            for (int i = 0; i <= numberN; i++)
+            {
+                if (i % 2 == 0)
+                {
+                    Console.WriteLine(Math.Pow(2, i));
+                }
+            }
+        }
+    }
+}
+
+/// 05. Character Sequence
+using System;
+
+namespace ForLoopLab
+{
+    class CharacterSequence
+
+    {
+        static void Main(string[] args)
+        {
+            string text = Console.ReadLine();
+            for (int i = 0; i < text.Length; i++)
+            {
+                Console.WriteLine(text[i]);
+            }
+        }
+    }
+}
+
+/// 06. Vowels Sum
+using System;
+
+namespace ForLoopLab
+{
+    class VowelsSum
+
+    {
+        static void Main(string[] args)
+        {
+            string text = Console.ReadLine();
+            int vowelsSum = 0;
+            for (int i = 0; i < text.Length; i++)
+            {
+                char currentCharacter = text[i];
+                switch (currentCharacter)
+                {
+                    case 'a':
+                        vowelsSum += 1;
+                        break;
+                    case 'e':
+                        vowelsSum += 2;
+                        break;
+                    case 'i':
+                        vowelsSum += 3;
+                        break;
+                    case 'o':
+                        vowelsSum += 4;
+                        break;
+                    case 'u':
+                        vowelsSum += 5;
+                        break;
+                }
+            }
+            Console.WriteLine(vowelsSum);
+        }
+    }
+}
+
+/// 07. Sum Numbers
+using System;
+
+namespace ForLoopLab
+{
+    class SumNumbers
+
+    {
+        static void Main(string[] args)
+        {
+            int numberN = int.Parse(Console.ReadLine());
+            int sum = 0;
+            for (int i = 0; i < numberN; i++)
+            {
+                int currentNumber = int.Parse(Console.ReadLine());
+                sum += currentNumber;
+            }
+            Console.WriteLine(sum);
+        }
+    }
+}
+
+/// 08. Number sequence
+using System;
+
+namespace ForLoopLab
+{
+    class NumberSequence
+
+    {
+        static void Main(string[] args)
+        {
+            int numberN = int.Parse(Console.ReadLine());
+            int maxNumber = int.MinValue;
+            int minNumber = int.MaxValue;
+            for (int i = 0; i < numberN; i++)
+            {
+                int currentNumber = int.Parse(Console.ReadLine());
+                if (currentNumber > maxNumber)
+                {
+                    maxNumber = currentNumber;
+                }
+                if (currentNumber < minNumber)
+                {
+                    minNumber = currentNumber;
+                }
+            }
+            Console.WriteLine($"Max number: {maxNumber}");
+            Console.WriteLine($"Min number: {minNumber}");
+        }
+    }
+}
+
+/// 09. Left and Right Sum
+using System;
+
+namespace ForLoopLab
+{
+    class LeftAndRightSum
+
+    {
+        static void Main(string[] args)
+        {
+            int numberN = int.Parse(Console.ReadLine());
+            int leftSum = 0;
+            int rightSum = 0;
+            for (int i = 0; i < numberN; i++)
+            {
+                int currentNumber = int.Parse(Console.ReadLine());
+                leftSum += currentNumber;
+            }
+            for (int i = 0; i < numberN; i++)
+            {
+                int currentNumber = int.Parse(Console.ReadLine());
+                rightSum += currentNumber;
+            }
+            int diff = Math.Abs(leftSum - rightSum);
+            if (diff == 0)
+            {
+                Console.WriteLine($"Yes, sum = {leftSum}");
+            }
+            else
+            {
+                Console.WriteLine($"No, diff = {diff}");
+            }
+        }
+    }
+}
+
+/// 10. Odd Even Sum
+using System;
+
+namespace ForLoopLab
+{
+    class OddEvenSum
+
+    {
+        static void Main(string[] args)
+        {
+            int numberN = int.Parse(Console.ReadLine());
+            int oddSum = 0;
+            int evenSum = 0;
+            for (int i = 1; i <= numberN; i++)
+            {
+                int currentNumber = int.Parse(Console.ReadLine());
+                if (i % 2 == 0)
+                {
+                    oddSum += currentNumber;
+                }
+                else
+                {
+                    evenSum += currentNumber;
+                }
+            }
+            int diff = Math.Abs(oddSum - evenSum);
+            if (diff == 0)
+            {
+                Console.WriteLine($"Yes\nSum = {oddSum}");
+            }
+            else
+            {
+                Console.WriteLine($"No\nDiff = {diff}");
+            }
+        }
+    }
+}
+
+/// 11. Clever Lily
+using System;
+
+namespace ForLoopLab
+{
+    class CleverLily
+
+    {
+        static void Main(string[] args)
+        {
+            int age = int.Parse(Console.ReadLine());
+            double priceWashingMachine = double.Parse(Console.ReadLine());
+            int priceToy = int.Parse(Console.ReadLine());
+            double total = 0;
+            double money = 0;
+            int toy = 0;
+            double spend = 0;
+            for (int index = 1; index <= age; index++)
+            {
+                if (index % 2 == 0)
+                {
+                    money += 10;
+                    spend++;
+                    total += money;
+                }
+                else
+                {
+                    toy++;
+                }
+            }
+            double totalToy = priceToy * toy;
+            total = total + totalToy - spend;
+            if (total >= priceWashingMachine)
+            {
+                Console.WriteLine($"Yes! {(total - priceWashingMachine):F2}");
+            }
+            else
+            {
+                Console.WriteLine($"No! {(priceWashingMachine - total):F2}");
+            }
+        }
+    }
+}
+
+
+////////// PB-CSharp-For-Loop-Еxercise //////////
+/// 01. Numbers Ending in 7
+using System;
+
+namespace ForLoopЕxercise
+{
+    class NumbersEndingInSeven
+
+    {
+        static void Main(string[] args)
+        {
+            for (int index = 7; index <= 1000; index += 10)
+            {
+                Console.WriteLine(index);
+            }
+        }
+    }
+}
+
+/// 02. Half Sum Element
+using System;
+
+namespace ForLoopЕxercise
+{
+    class HalfSumElement
+
+    {
+        static void Main(string[] args)
+        {
+            int numberN = int.Parse(Console.ReadLine());
+            int maxNumber = int.MinValue;
+            int sum = 0;
+            for (int index = 0; index < numberN; index++)
+            {
+                int currentNumber = int.Parse(Console.ReadLine());
+                sum += currentNumber;
+                if (maxNumber < currentNumber)
+                {
+                    maxNumber = currentNumber;
+                }
+            }
+            int sumOfTheOtherNumbers = sum - maxNumber;
+            if (sumOfTheOtherNumbers == maxNumber)
+            {
+                Console.WriteLine($"Yes\nSum = {sumOfTheOtherNumbers}");
+            }
+            else
+            {
+                Console.WriteLine($"No\nDiff = {Math.Abs(sumOfTheOtherNumbers - maxNumber)}");
+            }
+        }
+    }
+}
+
+/// 03. Odd / Even Position
+using System;
+
+namespace ForLoopЕxercise
+{
+    class EvenPosition
+
+    {
+        static void Main(string[] args)
+        {
+            int numberN = int.Parse(Console.ReadLine());
+            double oddSum = 0;
+            double oddMin = double.MaxValue;
+            double oddMax = double.MinValue;
+            double evenSum = 0;
+            double evenMin = double.MaxValue;
+            double evenMax = double.MinValue;
+            for (int index = 1; index <= numberN; index++)
+            {
+                double currentNumber = double.Parse(Console.ReadLine());
+                if (index % 2 != 0)
+                {
+                    oddSum += currentNumber;
+                    if (oddMax < currentNumber)
+                    {
+                        oddMax = currentNumber;
+                    }
+                    if (oddMin > currentNumber)
+                    {
+                        oddMin = currentNumber;
+                    }
+                }
+                else
+                {
+                    evenSum += currentNumber;
+                    if (evenMax < currentNumber)
+                    {
+                        evenMax = currentNumber;
+                    }
+                    if (evenMin > currentNumber)
+                    {
+                        evenMin = currentNumber;
+                    }
+                }
+            }
+            if (oddSum == 0)
+            {
+                Console.WriteLine($"OddSum={oddSum:F2},\nOddMin=No,\nOddMax=No,");
+            }
+            else
+            {
+                Console.WriteLine($"OddSum={oddSum:F2},\nOddMin={oddMin:F2},\nOddMax={oddMax:F2},");
+            }
+            if (evenSum == 0)
+            {
+                Console.WriteLine($"EvenSum={evenSum:F2},\nEvenMin=No,\nEvenMax=No");
+            }
+            else
+            {
+                Console.WriteLine($"EvenSum={evenSum:F2},\nEvenMin={evenMin:F2},\nEvenMax={evenMax:F2}");
+            }
+        }
+    }
+}
+
+/// 04. Histogram
+using System;
+
+namespace ForLoopЕxercise
+{
+    class Histogram
+
+    {
+        static void Main(string[] args)
+        {
+            int numberN = int.Parse(Console.ReadLine());
+            double p1Count = 0;
+            double p2Count = 0;
+            double p3Count = 0;
+            double p4Count = 0;
+            double p5Count = 0;
+            for (int index = 0; index < numberN; index++)
+            {
+                int currentNumber = int.Parse(Console.ReadLine());
+                if (currentNumber < 200)
+                {
+                    p1Count++;
+                }
+                else if (currentNumber >= 200 && currentNumber < 400)
+                {
+                    p2Count++;
+                }
+                else if (currentNumber >= 400 && currentNumber < 600)
+                {
+                    p3Count++;
+                }
+                else if (currentNumber >= 600 && currentNumber < 800)
+                {
+                    p4Count++;
+                }
+                else
+                {
+                    p5Count++;
+                }
+            }
+            double p1 = (p1Count / numberN) * 100;
+            double p2 = (p2Count / numberN) * 100;
+            double p3 = (p3Count / numberN) * 100;
+            double p4 = (p4Count / numberN) * 100;
+            double p5 = (p5Count / numberN) * 100;
+            Console.WriteLine($"{p1:F2}%\n{p2:F2}%\n{p3:F2}%\n{p4:F2}%\n{p5:F2}%");
+        }
+    }
+}
+
+/// 05. Divide Without Remainder
+using System;
+
+namespace ForLoopЕxercise
+{
+    class DivideWithoutRemainder
+
+    {
+        static void Main(string[] args)
+        {
+            int numberN = int.Parse(Console.ReadLine());
+            double p1CountWithoutRemainderByTwo = 0;
+            double p2CountWithoutRemainderByThree = 0;
+            double p3CountWithoutRemainderByFour = 0;
+            for (int index = 0; index < numberN; index++)
+            {
+                int currentNumber = int.Parse(Console.ReadLine());
+                if (currentNumber % 2 == 0)
+                {
+                    p1CountWithoutRemainderByTwo++;
+                }
+                if (currentNumber % 3 == 0)
+                {
+                    p2CountWithoutRemainderByThree++;
+                }
+                if (currentNumber % 4 == 0)
+                {
+                    p3CountWithoutRemainderByFour++;
+                }
+            }
+            double p1 = (p1CountWithoutRemainderByTwo / numberN) * 100;
+            double p2 = (p2CountWithoutRemainderByThree / numberN) * 100;
+            double p3 = (p3CountWithoutRemainderByFour / numberN) * 100;
+            Console.WriteLine($"{p1:F2}%\n{p2:F2}%\n{p3:F2}%");
+        }
+    }
+}
+
+/// 06. Salary
+using System;
+
+namespace ForLoopЕxercise
+{
+    class Salary
+
+    {
+        static void Main(string[] args)
+        {
+            int numberOfOpenTabs = int.Parse(Console.ReadLine());
+            double salaryOfEmployee = double.Parse(Console.ReadLine());
+            double imposedForFacebook = 150;
+            double imposedForInstagram = 100;
+            double imposedForReddit = 50;
+            for (int i = 0; i < numberOfOpenTabs; i++)
+            {
+                string site = Console.ReadLine();
+                if (site == "Facebook")
+                {
+                    salaryOfEmployee -= imposedForFacebook;
+                }
+                else if (site == "Instagram")
+                {
+                    salaryOfEmployee -= imposedForInstagram;
+                }
+                else if (site == "Reddit")
+                {
+                    salaryOfEmployee -= imposedForReddit;
+                }
+                if (salaryOfEmployee <= 0)
+                {
+                    break;
+                }
+            }
+            if (salaryOfEmployee > 0)
+            {
+                Console.WriteLine($"{salaryOfEmployee:F0}");
+            }
+            else
+            {
+                Console.WriteLine("You have lost your salary.");
+            }
+        }
+    }
+}

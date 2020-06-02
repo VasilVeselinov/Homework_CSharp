@@ -1,0 +1,530 @@
+////////// PB-CSharp-While-Loop-Lab //////////
+/// 01. Read Text
+using System;
+
+namespace WhileLoopLab
+{
+    class ReadText
+
+    {
+        static void Main(string[] args)
+        {
+            string text = Console.ReadLine();
+            while (text != "Stop")
+            {
+                Console.WriteLine(text);
+                text = Console.ReadLine();
+            }
+        }
+    }
+}
+
+/// 02. Password
+using System;
+
+namespace WhileLoopLab
+{
+    class Password
+
+    {
+        static void Main(string[] args)
+        {
+            string username = Console.ReadLine();
+            string password = Console.ReadLine();
+            string inputPassword = Console.ReadLine();
+            while (inputPassword != password)
+            {
+                inputPassword = Console.ReadLine();
+            }
+            Console.WriteLine($"Welcome {username}!");
+        }
+    }
+}
+
+/// 03. Sum Numbers
+using System;
+
+namespace WhileLoopLab
+{
+    class SumNumbers
+
+    {
+        static void Main(string[] args)
+        {
+            int baseNumber = int.Parse(Console.ReadLine());
+            int sum = 0;
+            do
+            {
+                int currentNumber = int.Parse(Console.ReadLine());
+                sum += currentNumber;
+            }
+            while (baseNumber > sum);
+            Console.WriteLine($"{sum}");
+        }
+    }
+}
+
+/// 04. Sequence 2k+1
+using System;
+
+namespace WhileLoopLab
+{
+    class Sequence2KPlus1
+
+    {
+        static void Main(string[] args)
+        {
+            double numberN = double.Parse(Console.ReadLine());
+            int number = 1;
+            while (numberN >= number)
+            {
+                Console.WriteLine(number);
+                number = 2 * number + 1;
+            }
+        }
+    }
+}
+
+/// 05. Account Balance
+using System;
+
+namespace WhileLoopLab
+{
+    class AccountBalance
+
+    {
+        static void Main(string[] args)
+        {
+            string text = Console.ReadLine();
+            double accountBalance = 0;
+            while (text != "NoMoreMoney")
+            {
+                double deposit = double.Parse(text);
+                if (deposit >= 0)
+                {
+                    accountBalance += deposit;
+                }
+                else
+                {
+                    Console.WriteLine("Invalid operation!");
+                    break;
+                }
+                Console.WriteLine($"Increase: {deposit:F2}");
+                text = Console.ReadLine();
+            }
+            Console.WriteLine($"Total: {accountBalance:F2}");
+        }
+    }
+}
+
+/// 06. Max Number
+using System;
+
+namespace WhileLoopLab
+{
+    class MaxNumber
+
+    {
+        static void Main(string[] args)
+        {
+            string text = Console.ReadLine();
+            int maxNumber = int.MinValue;
+            while (text != "Stop")
+            {
+                int currentNumber = int.Parse(text);
+                if (maxNumber < currentNumber)
+                {
+                    maxNumber = currentNumber;
+                }
+                text = Console.ReadLine();
+            }
+            Console.WriteLine(maxNumber);
+        }
+    }
+}
+
+/// 07. Min Number
+using System;
+
+namespace WhileLoopLab
+{
+    class MinNumber
+
+    {
+        static void Main(string[] args)
+        {
+            string text = Console.ReadLine();
+            int minNumber = int.MaxValue;
+            while (text != "Stop")
+            {
+                int currentNumber = int.Parse(text);
+                if (minNumber > currentNumber)
+                {
+                    minNumber = currentNumber;
+                }
+                text = Console.ReadLine();
+            }
+            Console.WriteLine(minNumber);
+        }
+    }
+}
+
+/// 08. Graduation pt.2
+using System;
+
+namespace WhileLoopLab
+{
+    class Graduation
+
+    {
+        static void Main(string[] args)
+        {
+            string studentName = Console.ReadLine();
+            int currentClass = 1;
+            double averageGrade = 0;
+            bool isRepeating = false;
+            while (currentClass <= 12)
+            {
+                double grade = double.Parse(Console.ReadLine());
+                if (grade >= 4.00)
+                {
+                    averageGrade += grade;
+                    currentClass++;
+                }
+                else
+                {
+                    if (isRepeating)
+                    {
+                        break;
+                    }
+                    isRepeating = true;
+                }
+            }
+            if (isRepeating)
+            {
+                Console.WriteLine($"{studentName} has been excluded at {currentClass} grade");
+            }
+            else
+            {
+                averageGrade /= 12;
+                Console.WriteLine($"{studentName} graduated. Average grade: {averageGrade:F2}");
+            }
+        }
+    }
+}
+
+/// 09. Moving
+using System;
+
+namespace WhileLoopLab
+{
+    class Moving
+
+    {
+        static void Main(string[] args)
+        {
+            int width = int.Parse(Console.ReadLine());
+            int length = int.Parse(Console.ReadLine());
+            int height = int.Parse(Console.ReadLine());
+            int volumeOfTheDwelling = width * length * height;
+            while (volumeOfTheDwelling > 0)
+            {
+                string text = Console.ReadLine();
+                if (text == "Done")
+                {
+                    break;
+                }
+                int numberBox = int.Parse(text);
+                volumeOfTheDwelling -= numberBox;
+            }
+            if (volumeOfTheDwelling >= 0)
+            {
+                Console.WriteLine(volumeOfTheDwelling + " Cubic meters left.");
+            }
+            else
+            {
+                Console.WriteLine($"No more free space! You need {Math.Abs(volumeOfTheDwelling)} Cubic meters more.");
+            }
+        }
+    }
+}
+
+
+////////// PB-CSharp-While-Loop-Еxercise //////////
+/// 01. Old Books
+using System;
+
+namespace WhileLoopExercise
+{
+    class OldBooks
+
+    {
+        static void Main(string[] args)
+        {
+            string searchBook = Console.ReadLine();
+            int numberOfSearching = 0;
+            bool isFound = false;
+            string currentBook = Console.ReadLine();
+            while (currentBook != "No More Books")
+            {
+                if (searchBook == currentBook)
+                {
+                    isFound = true;
+                    break;
+                }
+                numberOfSearching++;
+                currentBook = Console.ReadLine();
+            }
+            if (isFound)
+            {
+                Console.WriteLine($"You checked {numberOfSearching} books and found it.");
+            }
+            else
+            {
+                Console.WriteLine($"The book you search is not here!\nYou checked {numberOfSearching} books.");
+            }
+        }
+    }
+}
+
+/// 02. Exam Preparation
+using System;
+
+namespace WhileLoopExercise
+{
+    class ExamPreparation
+
+    {
+        static void Main(string[] args)
+        {
+            int numberOfUnsatisfactoryRatings = int.Parse(Console.ReadLine());
+            int counterUR = 0;
+            double averageScore = 0;
+            int counterOfTask = 0;
+            string currentText = Console.ReadLine();
+            string lastProblem = "";
+            while (true)
+            {
+                if (currentText == "Enough")
+                {
+                    break;
+                }
+                else
+                {
+                    lastProblem = currentText;
+                }
+                counterOfTask++;
+                int currentGread = int.Parse(Console.ReadLine());
+                averageScore += currentGread;
+                if (currentGread <= 4)
+                {
+                    counterUR++;
+                }
+                if (counterUR == numberOfUnsatisfactoryRatings)
+                {
+                    break;
+                }
+                currentText = Console.ReadLine();
+            }
+            if (counterUR == numberOfUnsatisfactoryRatings)
+            {
+                Console.WriteLine($"You need a break, {numberOfUnsatisfactoryRatings} poor grades.");
+            }
+            else
+            {
+                Console.WriteLine($"Average score: {(averageScore / counterOfTask):F2}");
+                Console.WriteLine($"Number of problems: {counterOfTask}");
+                Console.WriteLine($"Last problem: {lastProblem}");
+            }
+        }
+    }
+}
+
+/// 03. Vacation
+using System;
+
+namespace WhileLoopExercise
+{
+    class Vacation
+
+    {
+        static void Main(string[] args)
+        {
+            double needMoney = double.Parse(Console.ReadLine());
+            double currentBalans = double.Parse(Console.ReadLine());
+            int counterForSpend = 0;
+            int counterDay = 0;
+            while (currentBalans < needMoney)
+            {
+                string text = Console.ReadLine();
+                double money = double.Parse(Console.ReadLine());
+                if (text == "spend")
+                {
+                    if (money > currentBalans)
+                    {
+                        currentBalans = 0;
+                    }
+                    else
+                    {
+                        currentBalans -= money;
+                    }
+                    counterForSpend++;
+                }
+                else
+                {
+                    currentBalans += money;
+                    counterForSpend = 0;
+                }
+                counterDay++;
+                if (counterForSpend == 5)
+                {
+                    break;
+                }
+            }
+            if (currentBalans >= needMoney)
+            {
+                Console.WriteLine($"You saved the money for {counterDay} days.");
+            }
+            else
+            {
+                Console.WriteLine($"You can't save the money.\n{counterDay}");
+            }
+        }
+    }
+}
+
+/// 04. Walking
+using System;
+
+namespace WhileLoopExercise
+{
+    class Walking
+
+    {
+        static void Main(string[] args)
+        {
+            string text = Console.ReadLine();
+            int targetSteps = 10000;
+            while (targetSteps > 0)
+            {
+                if (text == "Going home")
+                {
+                    int lastSteps = int.Parse(Console.ReadLine());
+                    targetSteps -= lastSteps;
+                    break;
+                }
+                else
+                {
+                    int steps = int.Parse(text);
+                    targetSteps -= steps;
+                }
+                text = Console.ReadLine();
+            }
+            if (targetSteps <= 0)
+            {
+                Console.WriteLine($"Goal reached! Good job!\n{Math.Abs(targetSteps)} steps over the goal!");
+            }
+            else
+            {
+                Console.WriteLine($"{targetSteps} more steps to reach goal.");
+            }
+        }
+    }
+}
+
+/// 05. Coins
+using System;
+
+namespace WhileLoopExercise
+{
+    class Coins
+
+    {
+        static void Main(string[] args)
+        {
+            double number = double.Parse(Console.ReadLine());
+            int stotinki = (int)(number * 100);
+            int counterOfCoin = 0;
+            while (stotinki > 0)
+            {
+                if (stotinki >= 200)
+                {
+                    counterOfCoin++;
+                    stotinki = stotinki - 200;
+                }
+                else if (stotinki >= 100)
+                {
+                    counterOfCoin++;
+                    stotinki = stotinki - 100;
+                }
+                else if (stotinki >= 50)
+                {
+                    counterOfCoin++;
+                    stotinki = stotinki - 50;
+                }
+                else if (stotinki >= 20)
+                {
+                    counterOfCoin++;
+                    stotinki = stotinki - 20;
+                }
+                else if (stotinki >= 10)
+                {
+                    counterOfCoin++;
+                    stotinki = stotinki - 10;
+                }
+                else if (stotinki >= 5)
+                {
+                    counterOfCoin++;
+                    stotinki = stotinki - 5;
+                }
+                else if (stotinki >= 2)
+                {
+                    counterOfCoin++;
+                    stotinki = stotinki - 2;
+                }
+                else if (stotinki >= 1)
+                {
+                    counterOfCoin++;
+                    stotinki = stotinki - 1;
+                    break;
+                }
+            }
+            Console.WriteLine(counterOfCoin);
+        }
+    }
+}
+
+/// 06. Cake
+using System;
+
+namespace WhileLoopExercise
+{
+    class Cake
+
+    {
+        static void Main(string[] args)
+        {
+            int width = int.Parse(Console.ReadLine());
+            int length = int.Parse(Console.ReadLine());
+            int numberOfCakePieces = width * length;
+            while (numberOfCakePieces > 0)
+            {
+                string text = Console.ReadLine();
+                if (text == "STOP")
+                {
+                    break;
+                }
+                int piece = int.Parse(text);
+                numberOfCakePieces -= piece;
+            }
+            if (numberOfCakePieces >= 0)
+            {
+                Console.WriteLine(numberOfCakePieces + " pieces are left.");
+            }
+            else
+            {
+                Console.WriteLine($"No more cake left! You need {Math.Abs(numberOfCakePieces)} pieces more.");
+            }
+        }
+    }
+}

@@ -1,0 +1,494 @@
+////////// PB-CSharp-Nested-Loops-Lab //////////
+/// 01. Clock
+using System;
+
+namespace NestedLoopsLab
+{
+    class Clock
+
+    {
+        static void Main(string[] args)
+        {
+            for (int hour = 0; hour <= 23; hour++)
+            {
+                for (int minute = 0; minute < 60; minute++)
+                {
+                    Console.WriteLine($"{hour}:{minute}");
+                }
+            }
+        }
+    }
+}
+
+/// 02. Multiplication Table
+using System;
+
+namespace NestedLoopsLab
+{
+    class MultiplicationTable
+
+    {
+        static void Main(string[] args)
+        {
+            for (int first = 1; first <= 10; first++)
+            {
+                for (int second = 1; second <= 10; second++)
+                {
+                    Console.WriteLine($"{first} * {second} = {first * second}");
+                }
+            }
+        }
+    }
+}
+
+/// 03. Combinations
+using System;
+
+namespace NestedLoopsLab
+{
+    class Combinations
+
+    {
+        static void Main(string[] args)
+        {
+            int numberN = int.Parse(Console.ReadLine());
+            int countOfsum = 0;
+            for (int first = 0; first <= numberN; first++)
+            {
+                for (int second = 0; second <= numberN; second++)
+                {
+                    for (int third = 0; third <= numberN; third++)
+                    {
+                        if (first + second + third == numberN)
+                        {
+                            countOfsum++;
+                        }
+                    }
+                }
+            }
+            Console.WriteLine(countOfsum);
+        }
+    }
+}
+
+/// 04. Sum of Two Numbers
+using System;
+
+namespace NestedLoopsLab
+{
+    class SumOfTwoNumbers
+
+    {
+        static void Main(string[] args)
+        {
+            int start = int.Parse(Console.ReadLine());
+            int end = int.Parse(Console.ReadLine());
+            int magicNumber = int.Parse(Console.ReadLine());
+            int countOfCombination = 0;
+            bool isFound = false;
+            int firstNumber = 0;
+            int secondNumber = 0;
+            for (int i = start; i <= end; i++)
+            {
+                for (int j = start; j <= end; j++)
+                {
+                    countOfCombination++;
+                    if (i + j == magicNumber)
+                    {
+                        isFound = true;
+                        firstNumber = i;
+                        secondNumber = j;
+                        break;
+                    }
+                }
+                if (isFound)
+                {
+                    break;
+                }
+            }
+            if (isFound)
+            {
+                Console.WriteLine($"Combination N:{countOfCombination} ({firstNumber} + {secondNumber} = {firstNumber + secondNumber})");
+            }
+            else
+            {
+                Console.WriteLine($"{countOfCombination} combinations - neither equals {magicNumber}");
+            }
+        }
+    }
+}
+
+/// 05. Travelling
+using System;
+
+namespace NestedLoopsLab
+{
+    class Travelling
+
+    {
+        static void Main(string[] args)
+        {
+            while (true)
+            {
+                string country = Console.ReadLine();
+                if (country == "End")
+                {
+                    break;
+                }
+                double budget = double.Parse(Console.ReadLine());
+                while (true)
+                {
+                    double saveMoney = double.Parse(Console.ReadLine());
+                    budget -= saveMoney;
+                    if (budget <= 0)
+                    {
+                        Console.WriteLine($"Going to {country}!");
+                        break;
+                    }
+                }
+            }
+        }
+    }
+}
+
+/// 06. Building
+using System;
+
+namespace NestedLoopsLab
+{
+    class Building
+
+    {
+        static void Main(string[] args)
+        {
+            int numberOfFloors = int.Parse(Console.ReadLine());
+            int numberOfRooms = int.Parse(Console.ReadLine());
+
+            for (int floor = numberOfFloors; floor > 0; floor--)
+            {
+                string printFloor = "";
+                for (int room = 0; room < numberOfRooms; room++)
+                {
+                    string currentApartament = $"{floor}{room}";
+                    if (floor == numberOfFloors)
+                    {
+                        printFloor += $"L{currentApartament} ";
+                    }
+                    else if (floor % 2 == 0)
+                    {
+                        printFloor += $"O{currentApartament} ";
+                    }
+                    else
+                    {
+                        printFloor += $"A{ currentApartament} ";
+                    }
+                }
+                Console.WriteLine(printFloor);
+            }
+        }
+    }
+}
+
+/// 07. Cinema Tickets
+using System;
+
+namespace NestedLoopsLab
+{
+    class CinemaTickets
+
+    {
+        static void Main(string[] args)
+        {
+            string inputCommand = Console.ReadLine();
+            double countOfSaleTicket = 0;
+            int countOfSaleTicketTypeStudent = 0;
+            int countOfSaleTicketTypeStandard = 0;
+            int countOfSaleTicketTypeKid = 0;
+            while (inputCommand != "Finish")
+            {
+                string nameOfFilm = inputCommand;
+                int capacityOfTheSalon = int.Parse(Console.ReadLine());
+                int numberOfFreePlaces = capacityOfTheSalon;
+                double percentageOfSaleTicketForTheFilm = 0;
+                double countCurrentSaleTicket = 0;
+                while (numberOfFreePlaces > 0)
+                {
+                    string typeOfTicket = Console.ReadLine();
+                    if (typeOfTicket == "End")
+                    {
+                        break;
+                    }
+                    else if (typeOfTicket == "student")
+                    {
+                        countOfSaleTicketTypeStudent++;
+                    }
+                    else if (typeOfTicket == "standard")
+                    {
+                        countOfSaleTicketTypeStandard++;
+                    }
+                    else if (typeOfTicket == "kid")
+                    {
+                        countOfSaleTicketTypeKid++;
+                    }
+                    countCurrentSaleTicket++;
+                    numberOfFreePlaces--;
+                }
+                percentageOfSaleTicketForTheFilm = (countCurrentSaleTicket / capacityOfTheSalon) * 100;
+                Console.WriteLine($"{nameOfFilm} - {percentageOfSaleTicketForTheFilm:F2}% full.");
+                countOfSaleTicket += countCurrentSaleTicket;
+                inputCommand = Console.ReadLine();
+            }
+            double percentageOfSaleTicketForTypeStudent = (countOfSaleTicketTypeStudent / countOfSaleTicket) * 100;
+            double percentageOfSaleTicketForTypeStandart = (countOfSaleTicketTypeStandard / countOfSaleTicket) * 100;
+            double percentageOfSaleTicketForTypeKid = (countOfSaleTicketTypeKid / countOfSaleTicket) * 100;
+            Console.WriteLine($"Total tickets: {countOfSaleTicket}\n" +
+        $"{percentageOfSaleTicketForTypeStudent:F2}% student tickets.\n" +
+        $"{percentageOfSaleTicketForTypeStandart:F2}% standard tickets.\n" +
+        $"{percentageOfSaleTicketForTypeKid:F2}% kids tickets.");
+        }
+    }
+}
+
+
+////////// PB-CSharp-Nested-Loops-Еxercise //////////
+/// 01. Number Pyramid
+using System;
+
+namespace NestedLoopsЕxercise
+{
+    class NumberPyramid
+
+    {
+        static void Main(string[] args)
+        {
+            int numberN = int.Parse(Console.ReadLine());
+            int row = 1;
+            int currentNumber = 1;
+            while (currentNumber <= numberN)
+            {
+                string printRow = "";
+                for (int start = 0; start < row; start++)
+                {
+                    printRow += currentNumber + " ";
+                    currentNumber++;
+                    if (currentNumber > numberN)
+                    {
+                        break;
+                    }
+                }
+                Console.WriteLine(printRow);
+                if (currentNumber > numberN)
+                {
+                    break;
+                }
+                row++;
+            }
+        }
+    }
+}
+
+/// 02. Equal Sums Even Odd Position
+using System;
+
+namespace NestedLoopsЕxercise
+{
+    class EqualSumsEvenOddPosition
+
+    {
+        static void Main(string[] args)
+        {
+            int firstNumber = int.Parse(Console.ReadLine());
+            int secondNumber = int.Parse(Console.ReadLine());
+            string printLine = "";
+            for (int i = firstNumber; i <= secondNumber; i++)
+            {
+                int currentNumber = i;
+                int evenSum = 0;
+                int oddSum = 0;
+                for (int j = 1; j <= 6; j++)
+                {
+                    int num = currentNumber % 10;
+                    if (j % 2 != 0)
+                    {
+                        oddSum += num;
+                    }
+                    else
+                    {
+                        evenSum += num;
+                    }
+                    currentNumber /= 10;
+                }
+                if (evenSum == oddSum)
+                {
+                    printLine += i + " ";
+                }
+            }
+            Console.WriteLine(printLine);
+        }
+    }
+}
+
+/// 03. Sum Prime Non Prime
+using System;
+
+namespace NestedLoopsЕxercise
+{
+    class SumPrimeNonPrime
+
+    {
+        static void Main(string[] args)
+        {
+            int primeSum = 0;
+            int nonPrimeSum = 0;
+            while (true)
+            {
+                string text = Console.ReadLine();
+                if (text == "stop")
+                {
+                    break;
+                }
+                int num = int.Parse(text);
+                if (num < 0)
+                {
+                    Console.WriteLine("Number is negative.");
+                }
+                else if (num == 2)
+                {
+                    primeSum += num;
+                }
+                else if (num % 2 == 0 || num == 1)
+                {
+                    nonPrimeSum += num;
+                }
+                else
+                {
+                    bool flag = true;
+                    for (int i = 3; i <= num / 2 && flag; i++)
+                    {
+                        if (num % i == 0)
+                        {
+                            flag = false;
+                        }
+                    }
+                    if (flag)
+                    {
+                        primeSum += num;
+                    }
+                    else
+                    {
+                        nonPrimeSum += num;
+                    }
+                }
+            }
+            Console.WriteLine("Sum of all prime numbers is: " + primeSum);
+            Console.WriteLine("Sum of all non prime numbers is: " + nonPrimeSum);
+        }
+    }
+}
+
+/// 04. Train The Trainers
+using System;
+
+namespace NestedLoopsЕxercise
+{
+    class TrainTheTrainers
+
+    {
+        static void Main(string[] args)
+        {
+            int n = int.Parse(Console.ReadLine());
+            double finalGrade = 0;
+            int counter = 0;
+            while (true)
+            {
+                string text = Console.ReadLine();
+                double totalGrade = 0;
+                if (text == "Finish")
+                {
+                    finalGrade /= counter;
+                    Console.WriteLine($"Student's final assessment is {finalGrade:F2}.");
+                    break;
+                }
+                for (int i = 0; i < n; i++)
+                {
+                    double grade = double.Parse(Console.ReadLine());
+                    totalGrade += grade;
+                }
+                totalGrade /= n;
+                Console.WriteLine($"{text} - {totalGrade:F2}.");
+                counter++;
+                finalGrade += totalGrade;
+            }
+        }
+    }
+}
+
+/// 05. Password Generator
+using System;
+
+namespace NestedLoopsЕxercise
+{
+    class PasswordGenerator
+
+    {
+        static void Main(string[] args)
+        {
+            int n = int.Parse(Console.ReadLine());
+            int l = int.Parse(Console.ReadLine());
+            string printLine = "";
+            for (int i = 1; i <= n; i++)
+            {
+                for (int j = 1; j <= n; j++)
+                {
+                    for (int k = 0; k < l; k++)
+                    {
+                        for (int m = 0; m < l; m++)
+                        {
+                            for (int o = 1; o <= n; o++)
+                            {
+                                if (o > i && o > j)
+                                {
+                                    printLine += "" + i + j + (char)(k + 97) + (char)(m + 97) + o + " ";
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            Console.WriteLine(printLine);
+        }
+    }
+}
+
+/// 06. Special Numbers
+using System;
+
+namespace NestedLoopsЕxercise
+{
+    class SpecialNumbers
+
+    {
+        static void Main(string[] args)
+        {
+            int number = int.Parse(Console.ReadLine());
+            string printResult = "";
+            for (int i = 1; i <= 9; i++)
+            {
+                for (int j = 1; j <= 9; j++)
+                {
+                    for (int k = 1; k <= 9; k++)
+                    {
+                        for (int l = 1; l <= 9; l++)
+                        {
+                            if (number % i == 0 && number % j == 0 && number % k == 0 && number % l == 0)
+                            {
+                                printResult += "" + i + j + k + l + " ";
+                            }
+                        }
+                    }
+                }
+            }
+            Console.WriteLine(printResult);
+        }
+    }
+}
